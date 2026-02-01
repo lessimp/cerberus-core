@@ -19,29 +19,34 @@
 
 version: '3'
 services:
-  database:
+  database: 
+    platform: linux/amd64
     image: cerberustesting/cerberus-db-mysql:latest
-    expose:
-      - "3306"
+    command: --authentication_policy=mysql_native_password
+    environment:
+      - MYSQL_DATABASE=cerberus
+      - MYSQL_USER=cerberus
+      - MYSQL_PASSWORD=cerberus
+      - MYSQL_ROOT_PASSWORD=rootpassword
     ports:
       - "13306:3306"
     volumes:
       - ./localdata/mysql-db:/var/lib/mysql
-#      - /etc/localtime:/etc/localtime:ro
     restart: always
-  cerberus:
+      
+  cerberus:   
+    platform: linux/amd64
     image: cerberustesting/cerberus-as-tomcat:latest
     environment:
       - DATABASE_HOST=database
       - DATABASE_PORT=3306
-    ports:
-      - "8080:8080"
+      - DATABASE_USER=cerberus
+      - DATABASE_PASSWORD=cerberus
+      - JDBC_OPTIONS=allowPublicKeyRetrieval=true&useSSL=false
+    ports:    
+      - "8888:8080"
     volumes:
       - ./localdata/cerberusmedia:/opt/CerberusMedias/
-#      - /etc/localtime:/etc/localtime:ro
     restart: always
     depends_on:
       - database
-    links:
-      - database
-
