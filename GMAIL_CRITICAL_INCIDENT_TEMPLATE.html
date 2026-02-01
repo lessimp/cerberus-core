@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lessimp Security Alert - Critical Incident</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333333;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .email-container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+            color: #ffffff;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 600;
+        }
+        .alert-icon {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+        .severity-badge {
+            display: inline-block;
+            background-color: #ffffff;
+            color: #dc3545;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 14px;
+            margin-top: 10px;
+            text-transform: uppercase;
+        }
+        .content {
+            padding: 30px 20px;
+        }
+        .alert-message {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin-bottom: 25px;
+            border-radius: 4px;
+        }
+        .alert-message p {
+            margin: 0;
+            color: #856404;
+            font-weight: 500;
+        }
+        .incident-details {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+        .incident-details h2 {
+            margin-top: 0;
+            font-size: 18px;
+            color: #495057;
+            border-bottom: 2px solid #dee2e6;
+            padding-bottom: 10px;
+        }
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+        .detail-label {
+            font-weight: 600;
+            color: #6c757d;
+            flex: 0 0 40%;
+        }
+        .detail-value {
+            color: #212529;
+            flex: 0 0 60%;
+            text-align: right;
+            word-break: break-word;
+        }
+        .detail-value.critical {
+            color: #dc3545;
+            font-weight: 700;
+        }
+        .action-section {
+            background-color: #e7f3ff;
+            border-left: 4px solid #0056b3;
+            padding: 15px;
+            margin-bottom: 25px;
+            border-radius: 4px;
+        }
+        .action-section h3 {
+            margin-top: 0;
+            color: #0056b3;
+            font-size: 16px;
+        }
+        .action-section ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        .action-section li {
+            margin: 8px 0;
+            color: #004085;
+        }
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #0056b3 0%, #004494 100%);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 12px 30px;
+            border-radius: 6px;
+            font-weight: 600;
+            margin: 10px 0;
+            text-align: center;
+        }
+        .cta-button:hover {
+            background: linear-gradient(135deg, #004494 0%, #003875 100%);
+        }
+        .footer {
+            background-color: #343a40;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+        .footer p {
+            margin: 5px 0;
+        }
+        .footer a {
+            color: #17a2b8;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        .timestamp {
+            color: #6c757d;
+            font-size: 12px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        @media only screen and (max-width: 600px) {
+            .email-container {
+                margin: 0;
+                border-radius: 0;
+            }
+            .content {
+                padding: 20px 15px;
+            }
+            .detail-row {
+                flex-direction: column;
+            }
+            .detail-label,
+            .detail-value {
+                flex: 1;
+                text-align: left;
+            }
+            .detail-value {
+                margin-top: 5px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="alert-icon">🚨</div>
+            <h1>Security Alert: Unauthorized Login Attempt</h1>
+            <span class="severity-badge">CRITICAL</span>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <!-- Alert Message -->
+            <div class="alert-message">
+                <p>⚠️ An unauthorized login attempt has been detected on the Lessimp platform. Immediate attention required.</p>
+            </div>
+
+            <!-- Incident Details -->
+            <div class="incident-details">
+                <h2>📋 Incident Details</h2>
+                <div class="detail-row">
+                    <span class="detail-label">User Identifier:</span>
+                    <span class="detail-value critical">$finallogic.user</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Status:</span>
+                    <span class="detail-value critical">UNAUTHORIZED</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Timestamp:</span>
+                    <span class="detail-value">$finallogic.timestamp</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Test Case:</span>
+                    <span class="detail-value">TC001_SecureLogin</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Phone Number:</span>
+                    <span class="detail-value">$exec.text.phone</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Email:</span>
+                    <span class="detail-value">$exec.text.email</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Hour of Attempt:</span>
+                    <span class="detail-value">$finallogic.hour:00</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Severity Level:</span>
+                    <span class="detail-value critical">CRITICAL</span>
+                </div>
+            </div>
+
+            <!-- Action Required -->
+            <div class="action-section">
+                <h3>🔍 Action Required</h3>
+                <p>Please investigate this incident immediately. Recommended actions:</p>
+                <ul>
+                    <li>Verify user identity: Check if user "$finallogic.user" is authorized</li>
+                    <li>Review Cerberus execution logs for TC001_SecureLogin</li>
+                    <li>Check Firebase authentication logs for phone number: $exec.text.phone</li>
+                    <li>Review Shuffle workflow logs for additional context</li>
+                    <li>If confirmed unauthorized: Disable affected account and reset credentials</li>
+                    <li>Update security policies if vulnerability identified</li>
+                </ul>
+                <center>
+                    <a href="http://localhost:8888/" class="cta-button">View Cerberus Logs</a>
+                    <a href="https://console.firebase.google.com/" class="cta-button">View Firebase Logs</a>
+                </center>
+            </div>
+
+            <!-- Security Context -->
+            <div class="incident-details">
+                <h2>🔐 Security Context</h2>
+                <div class="detail-row">
+                    <span class="detail-label">Expected User:</span>
+                    <span class="detail-value">wipedclean</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Expected Time:</span>
+                    <span class="detail-value">9:00 AM (Hour 9)</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Validation Logic:</span>
+                    <span class="detail-value">User must be "wipedclean" OR hour must be 9</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Alert Channels:</span>
+                    <span class="detail-value">Discord (active), Gmail SMTP (this email)</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Monitoring System:</span>
+                    <span class="detail-value">Shuffle Security Automation</span>
+                </div>
+            </div>
+
+            <!-- Message -->
+            <p style="color: #6c757d; font-size: 14px; margin-top: 25px;">
+                This is an automated security alert generated by the Lessimp Security Monitoring System. 
+                The Shuffle automation engine detected a login pattern that does not match authorized criteria and triggered this incident report.
+            </p>
+
+            <!-- Timestamp -->
+            <p class="timestamp">
+                Alert generated: $finallogic.timestamp<br>
+                Incident ID: SEC-$finallogic.timestamp
+            </p>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p><strong>Lessimp Security Monitoring</strong></p>
+            <p>Powered by Shuffle Automation & Cerberus Testing</p>
+            <p>
+                Questions? Contact <a href="mailto:wfrancois@lessimp.com">wfrancois@lessimp.com</a>
+            </p>
+            <p style="font-size: 12px; margin-top: 15px; color: #adb5bd;">
+                This email was sent to info@lessimp.com and cc'd to wfrancois@lessimp.com<br>
+                If you believe this is a false positive, please update the security validation logic in Shuffle.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
