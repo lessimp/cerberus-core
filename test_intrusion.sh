@@ -18,7 +18,8 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 # Configuration
-SHUFFLE_WEBHOOK_URL="https://shuffler.io/api/v1/hooks/webhook_a76354e0-cf09-4754-96e1-682c89084d4c"
+# CU Pillar 1 (SDx): Use LOCAL Shuffle engine for sovereign infrastructure
+SHUFFLE_WEBHOOK_URL="http://localhost:3001/api/v1/hooks/webhook_a76354e0-cf09-4754-96e1-682c89084d4c"
 CURRENT_TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
 CURRENT_HOUR=$(date +"%H")
 
